@@ -1,5 +1,6 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
+let logEntries = [];
 
 // Gets input from input field
 function getUserNumberInput(){
@@ -7,8 +8,8 @@ function getUserNumberInput(){
 }
 
 // Generates and writes calculation log
-function createAndWriteOutput(operator, resultBoforeCalc, calcNumber){
-  const calcDescription = `${resultBoforeCalc} ${operator} ${calcNumber}`;
+function createAndWriteOutput(operator, resultBeforeCalc, calcNumber){
+  const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
   outputResult(currentResult, calcDescription); // from vendor file
 }
 
@@ -17,6 +18,8 @@ function add(){
   const initialResult = currentResult;
   currentResult += enteredNumber;
   createAndWriteOutput('+', initialResult, enteredNumber);
+  logEntries.push(enteredNumber);
+  console.log(logEntries);
 }
 
 function subtract(){
